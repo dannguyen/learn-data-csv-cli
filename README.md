@@ -82,13 +82,16 @@ A common task is to tidy up and standardize a delimited file. This can include c
 
 #### Converting tab delimiters
 
-csvkit:
+|         csvkit        |            xsv            |
+|-----------------------|---------------------------|
+| ```sh                 | ```sh                     |
+| csvformat -t data.tsv | xsv fmt -d "\t" data.tsv` |
+| ```                   | ```                       |
 
-`csvformat -t data.tsv`
 
-xsv:
 
-`xsv fmt -d "\t" data.tsv`
+
+
 
 
 #### Forcing every field to be quoted
