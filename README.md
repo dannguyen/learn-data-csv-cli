@@ -123,5 +123,7 @@ Data comes from:
     - [Landing page](https://www.fec.gov/data/browse-data/?tab=candidates)
     - [Documentation](https://www.fec.gov/campaign-finance-data/candidate-summary-file-description/)
     - [Direct link to CSV](https://www.fec.gov/files/bulk-downloads/2018/candidate_summary_2018.csv)
+- [data/fec-disbursements.csv]
+    - [Direct link to filtered view](https://www.fec.gov/data/disbursements/?two_year_transaction_period=2018&data_type=processed&min_date=01%2F01%2F2017&max_date=12%2F31%2F2018&min_amount=10000)
 - [data/nypd-stops-2018.csv]
     - https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
