@@ -82,12 +82,14 @@ A common task is to tidy up and standardize a delimited file. This can include c
 
 #### Converting tab delimiters
 
-|      csvkit      |         xsv         |
-|------------------|---------------------|
-|                  |                     |
-| `csvformat -t \` | `xsv fmt -d "\t" \` |
-| `     data.csv`  | `    data.csv`      |
-|                  |                     |
+
+```sh
+#### csvkit
+$ csvformat -t data.tsv
+
+#### xsv
+$ xsv fmt -d "\t" data.tsv
+```
 
 
 
@@ -117,3 +119,7 @@ xsv:
 Data comes from:
 
 - [data/legislators.csv](data/current-legislators.csv): The list of members of Congress as maintained by [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) as of March 2019. [Original CSV](https://theunitedstates.io/congress-legislators/legislators-current.csv)
+- [data/fec-candidates.csv](data/fec-candidates.csv): Candidates registered with the FEC for the 2017-2018 campaign cycle
+    - [Landing page](https://www.fec.gov/data/browse-data/?tab=candidates)
+    - [Documentation](https://www.fec.gov/campaign-finance-data/candidate-summary-file-description/)
+    - [Direct link to CSV](https://www.fec.gov/files/bulk-downloads/2018/candidate_summary_2018.csv)
