@@ -1,6 +1,20 @@
 # Comparing csvkit and xsv for command-line data processing
 
 
+**Table of contents**
+
+
+* [Overview](#overview)
+* [Installation](#installation)
+* [Common features](#common-features)
+ * [Fixing and standardizing the data formats](#fixing-and-standardizing-the-data-formats)
+    * [Converting tab delimiters](#converting-tab-delimiters)
+    * [Forcing every field to be quoted](#forcing-every-field-to-be-quoted)
+* [References and credits](#references-and-credits)
+
+
+
+
 ## Overview
 
 |          |                 csvkit                |                xsv                |
@@ -57,6 +71,40 @@ Or you can install the [Rust package manager, cargo](https://doc.rust-lang.org/c
 ```sh
 $ cargo install xsv
 ```
+
+## Common features
+
+
+### Fixing and standardizing the data formats
+
+A common task is to tidy up and standardize a delimited file. This can include converting non-comma delimiters (e.g. tabs, or pipes) into commas. And converting to a quoting-style. csvkit's dedicated utility is [csvformat](https://csvkit.readthedocs.io/en/latest/scripts/csvformat.html) is the dedicated tool. For **xsv**, the subcommand is **fmt**
+
+
+#### Converting tab delimiters
+
+csvkit:
+
+`csvformat -t data.tsv`
+
+xsv:
+
+`xsv fmt -d "\t" data.tsv`
+
+
+#### Forcing every field to be quoted
+
+
+csvkit:
+
+`csvformat -U 1 data.csv`
+
+xsv:
+
+`xsv fmt --quote-always data.csv`
+
+
+
+
 
 
 
