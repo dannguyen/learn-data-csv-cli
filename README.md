@@ -82,11 +82,12 @@ A common task is to tidy up and standardize a delimited file. This can include c
 
 #### Converting tab delimiters
 
-|         csvkit        |            xsv            |
-|-----------------------|---------------------------|
-| ```sh                 | ```sh                     |
-| csvformat -t data.tsv | xsv fmt -d "\t" data.tsv` |
-| ```                   | ```                       |
+|      csvkit      |         xsv         |
+|------------------|---------------------|
+|                  |                     |
+| `csvformat -t \` | `xsv fmt -d "\t" \` |
+| `     data.csv`  | `    data.csv`      |
+|                  |                     |
 
 
 
