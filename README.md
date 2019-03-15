@@ -3,14 +3,25 @@
 
 This repo started out as a short guide comparing the extremely useful command-line tools, [BurntSushi/xsv](https://github.com/BurntSushi/xsv) and [wireservice/csvkit](https://github.com/wireservice/csvkit). But the writing quickly became a brain splurge of *"there are too many ways to talk about how these tools make exploring/wrangling/analyzing data so much easier"*, and *"boy all those times at NICAR/school/work when a little knowledge about the command-line and text files would've saved people hours of painful struggling"*. So I've decided I should make this repo bigger than a single README.md file, including creating a list of recipes and scenarios and packaged data in the [data/ dir](data/). 
 
+Not much to see here, so here's a example of how, starting with the almost ~100,000 individual contributions to Senate campaigns in election week 2018, filter it to just money given by FAANG employees to the Texas race between Beto and Cruz:
+
 ```sh
-cat data/fec-contribs.csv \
+cat fec-contribs.csv \
     | csvgrep -c committee_name -r 'BETO|CRUZ' \
     | csvgrep -c contributor_employer -r 'FACEBOOK|APPLE|AMAZON|NETFLIX|GOOGLE' \
-    > senate-faang.csv
+    > senate-faangs.csv
 ```
 
-(It's a work in progress.)
+Here's a GIF rendition of what that code looks like when typed in without coffee:
+
+![gif me typing](content/images/csvkit-filter-texas-senate-fec.gif)
+
+And here's a screenshot of what that looks like in Excel (see the [data file here](data/results/senate-faangs.csv)):
+
+<img src="content/images/senate-faangs-csv-crop.png" alt="senate-faangs-csv-crop.png">
+
+
+
 
 ## Other resources
 
