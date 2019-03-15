@@ -1,7 +1,18 @@
 # Why learning how to work with data from the command-line (e.g. csvkit/xsv) is the best thing you can do no matter how good/bad/overwhelmed you think you already are at Excel/SQL/RStudio/Jupyter/pandas
 
 
-This repo started out as a short guide comparing the extremely useful command-line tools, [BurntSushi/xsv](https://github.com/BurntSushi/xsv) and [wireservice/csvkit](https://github.com/wireservice/csvkit). But the writing quickly became a brain splurge of *"there are too many ways to talk about how these tools make exploring/wrangling/analyzing data so much easier"*, and *"boy all those times at NICAR/school/work when a little knowledge about the command-line and text files would've saved people hours of painful struggling"*. So I've decided I should make this repo bigger than a single README.md file, including creating a list of recipes and scenarios and packaged data in the [data/ dir](data/). It's a work in progress.
+This repo started out as a short guide comparing the extremely useful command-line tools, [BurntSushi/xsv](https://github.com/BurntSushi/xsv) and [wireservice/csvkit](https://github.com/wireservice/csvkit). But the writing quickly became a brain splurge of *"there are too many ways to talk about how these tools make exploring/wrangling/analyzing data so much easier"*, and *"boy all those times at NICAR/school/work when a little knowledge about the command-line and text files would've saved people hours of painful struggling"*. So I've decided I should make this repo bigger than a single README.md file, including creating a list of recipes and scenarios and packaged data in the [data/ dir](data/). 
+
+```sh
+cat data/fec-contribs.csv \
+    | csvgrep -c committee_name -r 'BETO|CRUZ' \
+    | csvgrep -c contributor_employer -r 'FACEBOOK|APPLE|AMAZON|NETFLIX|GOOGLE' \
+    > senate-faang.csv
+```
+
+(It's a work in progress.)
+
+## Other resources
 
 In the meantime, here are some various references and tutorials you can check out already:
 
