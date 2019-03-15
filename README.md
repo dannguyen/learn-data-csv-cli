@@ -5,7 +5,6 @@ This repo started out as a short guide comparing the extremely useful command-li
 
 In the meantime, here are some various references and tutorials you can check out already:
 
-
 - [The official csvkit tutorial](https://csvkit.readthedocs.io/en/latest/tutorial.html), which includes how to get things installed, how to try the commands, and even an example of how to use [csvkit as the "Excel killer"](https://csvkit.readthedocs.io/en/latest/tutorial/1_getting_started.html#in2csv-the-excel-killer)
 - [Journocoder/educator Amanda Hickman has a csvkit tutorial](https://github.com/amandabee/workshops/wiki/Tutorial:-Using-CSVkit) among her many [data journalism workshop guides and tipsheets](https://github.com/amandabee/workshops/wiki).
 - [Another csvkit tutorial/example from data journalist Daniela Q. Lépiz, aptly titled, "Too much data? Use the command-line"](http://code4sa.org/2016/08/02/too-much-data.html)
