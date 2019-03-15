@@ -1,6 +1,6 @@
 
 
-## References and credits
+## data and credits
 
 Data comes from:
 
@@ -13,4 +13,7 @@ Data comes from:
     - [Direct link to filtered view](https://www.fec.gov/data/disbursements/?two_year_transaction_period=2018&data_type=processed&min_date=09%2F01%2F2018&max_date=11%2F30%2F2018&disbursement_description=meal&disbursement_description=food)
 - [data/nypd-stops-2018.csv]
     - https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
-
+- [data/fec-ind-contributions-20190201.csv](data/fec-ind-contributions-20190201.csv)
+    - FEC web view: https://www.fec.gov/data/receipts/individual-contributions/?two_year_transaction_period=2020&min_date=02%2F01%2F2019&max_date=02%2F07%2F2019
+- [data/fec-ind-contributions-senate-201811.csv](data/fec-ind-contributions-senate-201811.csv) Individual contributions to senate campaign committees the first week of November 2018
+    - https://www.fec.gov/data/receipts/individual-contributions/?two_year_transaction_period=2018&recipient_committee_type=S&min_date=11%2F01%2F2018&max_date=11%2F07%2F2018
