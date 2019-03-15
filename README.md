@@ -1,129 +1,22 @@
-# Comparing csvkit and xsv for command-line data processing
+# Why you should learn how to work with data from the command-line (e.g. csvkit/xsv) no matter how good you think you already are at Excel/SQL/RStudio/Jupyter/pandas
 
 
-**Table of contents**
+This repo started out as a short guide comparing the extremely useful command-line tools, [BurntSushi/xsv](https://github.com/BurntSushi/xsv) and [wireservice/csvkit](https://github.com/wireservice/csvkit). But the writing quickly became a brain splurge of *"there are too many ways to talk about how these tools make exploring/wrangling/analyzing data so much easier"*, and *"boy all those times at NICAR/school/work when a little knowledge about the command-line and text files would've saved people hours of painful struggling"*. So I've decided I should make this repo bigger than a single README.md file, including creating a list of recipes and scenarios and packaged data in the [data/ dir](data/). It's a work in progress.
+
+In the meantime, here are some various references and tutorials you can check out already:
 
 
-* [Overview](#overview)
-* [Installation](#installation)
-* [Common features](#common-features)
- * [Fixing and standardizing the data formats](#fixing-and-standardizing-the-data-formats)
-    * [Converting tab delimiters](#converting-tab-delimiters)
-    * [Forcing every field to be quoted](#forcing-every-field-to-be-quoted)
-* [References and credits](#references-and-credits)
+- [The official csvkit tutorial](https://csvkit.readthedocs.io/en/latest/tutorial.html), which includes how to get things installed, how to try the commands, and even an example of how to use [csvkit as the "Excel killer"](https://csvkit.readthedocs.io/en/latest/tutorial/1_getting_started.html#in2csv-the-excel-killer)
+- [Journocoder/educator Amanda Hickman has a csvkit tutorial](https://github.com/amandabee/workshops/wiki/Tutorial:-Using-CSVkit) among her many [data journalism workshop guides and tipsheets](https://github.com/amandabee/workshops/wiki).
+- [Another csvkit tutorial/example from data journalist Daniela Q. Lépiz, aptly titled, "Too much data? Use the command-line"](http://code4sa.org/2016/08/02/too-much-data.html)
+- [A csvkit workshop at NICAR18, by Christian McDonald of UT-Austin](https://github.com/utdata/csvkit-nicar2018)
+- ["Extracting and Working with CSV files"](https://www.compose.com/articles/comma-values-2-extracting-and-working-with-csv-files/) - a nice writeup by Dj Walker-Morgan in context of how csvkit can fit into the developer's workflow.
+- [Eleven Awesome Things You Can Do with csvkit](https://source.opennews.org/articles/eleven-awesome-things-you-can-do-csvkit/) - A listicle of more advanced, esoteric data-wrangling techniques by csvkit's author, Christopher Groskopf
+- I have a few Gists in which I've copied-pasted some crazy one-off scenarios to look at later. At the time, csvkit fit in perfectly as a nice hack before doing "actual" coding/engineering -- no guarantees if the gists make sense or even work (all of them refer to many other tools used in combination with csvkit):
+    - [Fitting 2016 FEC campaign donor data into your humble spreadsheet](https://gist.github.com/dannguyen/b5e7639888115cc8c9ad6a1220ee1226)
+    - [Importing FEC bulk data with bash and csvkit](https://gist.github.com/dannguyen/bbcce20fd62c44f960760bfb19ab837e)
+    - [Use public data, t, and csvkit to find Congressmembers on Twitter from the command-line](https://gist.github.com/dannguyen/b815e66226955bf82a15) 
+    - [How to download, import, and analyze San Francisco restaurant inspection data using SQLite3 and csvkit from the command-line.](https://gist.github.com/dannguyen/c9dd7afc4300ae8715d8)
+    - [Using mdbtools to extract CSV data from the FAA Wildlife Strike database (.accdb, Microsoft Access)](https://gist.github.com/dannguyen/4caf05f4a27775e0a550cd0a4f3fa21f)
+    - [Using the t and csvkit to quickly collect and analyze #nicar16 tweets from the command-line](https://gist.github.com/dannguyen/7c592c4559ee64f753e5)
 
-
-
-
-## Overview
-
-|          |                 csvkit                |                xsv                |
-|----------|---------------------------------------|-----------------------------------|
-| Docs     | https://csvkit.rtfd.io/               | https://docs.rs/crate/xsv         |
-| Repo     | https://github.com/wireservice/csvkit | https://github.com/BurntSushi/xsv |
-| Created  | March 2011                            | Sept. 2014                        |
-| Language | Python                                | Rust                              |
-
-
-|              |            csvkit            |                 xsv                 |
-|--------------|------------------------------|-------------------------------------|
-| trim columns | `csvcut -c name,state`       | `xsv select name,state`             |
-| grep columns | `csvgrep -c date -r '201\d'` | `xsv search '201\d' --select date ` |
-| stack files  | `csvstack data/*.csv`        | `xsv cat rows data/*.csv`           |
-|              |                              |                                     |
-
-## Installation
-
-
-**csvkit**
-
-https://csvkit.readthedocs.io/en/1.0.3/tutorial/1_getting_started.html#installing-csvkit
-
-Install using `pip`:
-
-```sh
-$ pip install csvkit
-```
-
-You can also use `conda` if you're going the Anaconda route:
-
-https://anaconda.org/anaconda/csvkit
-
-```sh
-$ conda install -c anaconda csvkit 
-```
-
-
-**xsv**
-
-https://github.com/BurntSushi/xsv#installation
-
-Compiled binaries for the major OSes can be downloaded here: https://github.com/BurntSushi/xsv/releases/tag/0.13.0
-
-On MacOS, Homebrew works:
-
-```sh
-$ brew install xsv
-```
-
-Or you can install the [Rust package manager, cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html), and then run:
-
-```sh
-$ cargo install xsv
-```
-
-## Common features
-
-
-### Fixing and standardizing the data formats
-
-A common task is to tidy up and standardize a delimited file. This can include converting non-comma delimiters (e.g. tabs, or pipes) into commas. And converting to a quoting-style. csvkit's dedicated utility is [csvformat](https://csvkit.readthedocs.io/en/latest/scripts/csvformat.html) is the dedicated tool. For **xsv**, the subcommand is **fmt**
-
-
-#### Converting tab delimiters
-
-
-```sh
-#### csvkit
-$ csvformat -t data.tsv
-
-#### xsv
-$ xsv fmt -d "\t" data.tsv
-```
-
-
-
-
-
-
-
-#### Forcing every field to be quoted
-
-
-csvkit:
-
-`csvformat -U 1 data.csv`
-
-xsv:
-
-`xsv fmt --quote-always data.csv`
-
-
-
-
-
-
-
-## References and credits
-
-Data comes from:
-
-- [data/legislators.csv](data/current-legislators.csv): The list of members of Congress as maintained by [unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators) as of March 2019. [Original CSV](https://theunitedstates.io/congress-legislators/legislators-current.csv)
-- [data/fec-candidates.csv](data/fec-candidates.csv): Candidates registered with the FEC for the 2017-2018 campaign cycle
-    - [Landing page](https://www.fec.gov/data/browse-data/?tab=candidates)
-    - [Documentation](https://www.fec.gov/campaign-finance-data/candidate-summary-file-description/)
-    - [Direct link to CSV](https://www.fec.gov/files/bulk-downloads/2018/candidate_summary_2018.csv)
-- [data/fec-disbursements.csv]
-    - [Direct link to filtered view](https://www.fec.gov/data/disbursements/?two_year_transaction_period=2018&data_type=processed&min_date=01%2F01%2F2017&max_date=12%2F31%2F2018&min_amount=10000)
-- [data/nypd-stops-2018.csv]
-    - https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
