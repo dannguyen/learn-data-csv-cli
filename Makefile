@@ -22,5 +22,5 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo '...Moving all contents of docs/html to docs (for Github pages)'
 	mv docs/html/* docs/
-	mv .[A-Za-z0-9]* docs/
+	mv docs/html/.[A-Za-z0-9]* docs/
 	rm -r docs/html
