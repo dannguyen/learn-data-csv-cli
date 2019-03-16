@@ -21,4 +21,4 @@ help:
 #	rm -rf docs/_* docs/html
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo '...rsyncing all contents of docs/html to docs (for Github pages)'
-	rsync -ac _build/html/* docs
+	rsync -ac _build/html/ docs
