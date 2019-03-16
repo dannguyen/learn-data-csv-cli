@@ -13,7 +13,7 @@ Welcome to Learn Command-Line CSV Tools's documentation!
    content/installation
 
 
-Why learning to work with data from the command-line (e.g. csvkit/xsv) is the best thing you can do for yourself no matter how good/bad/overwhelmed you think you already are at Excel/SQL/RStudio/Jupyter/pandas ffs why do we learn all that fancy syntax and GUIs and encumber our soft delicate brains when we could be doing data work like they did it in the awesome 80s but with way less effort and much better looking laptops
+Why learning to work with data from the command-line (e.g. csvkit/xsv) is the best thing you can do for yourself no matter how good/bad/overwhelmed you think you already are at Excel/SQL/RStudio/Jupyter/pandas ffs why do we learn all that fancy syntax and GUIs and encumber our soft delicate brains when we could be doing data work like they did it in the awesome 80s but with way less effort and much better looking laptops.
 
 .. code-block:: shell
 
@@ -22,10 +22,9 @@ Why learning to work with data from the command-line (e.g. csvkit/xsv) is the be
     | csvgrep -c contributor_employer -r 'FACEBOOK|APPLE|AMAZON|NETFLIX|GOOGLE' \
     > senate-faangs.csv
 
-.. image:: content/images/csvkit-filter-texas-senate-fec.gif
+.. image:: /content/images/csvkit-filter-texas-senate-fec.gif
 
-
-.. image:: content/images/senate-faangs-csv-crop.png" alt="senate-faangs-csv-crop.png
+.. image:: /content/images/senate-faangs-csv-crop.png
 
 
 

@@ -7,7 +7,7 @@ datadump/
 foobar/
 foobar.*
 junk/
-
+_build/
 
 # try to prevent the inclusion of credentials
 creds/
