@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Learn Command-Line CSV Tools's documentation!
-========================================================
+Welcome to Learn Command-Line CSV Tools
+=======================================
 
 .. toctree::
    :maxdepth: 2
