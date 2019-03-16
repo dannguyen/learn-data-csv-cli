@@ -164,6 +164,7 @@ texinfo_documents = [
      author, 'LearnCommand-LineCSVTools', 'One line description of project.',
      'Miscellaneous'),
 ]
+html_show_sourcelink = False
 
 
 # -- Extension configuration -------------------------------------------------
